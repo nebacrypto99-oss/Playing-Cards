@@ -5,133 +5,126 @@ body {
     font-weight: 900;
 }
 
-/* 1. FIXED CONTAINER MARGINS & ADDED RESPONSIVE SCALING */
+/* --- CONTAINER & RESPONSIVE SCALING --- */
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin: 40px auto; /* Centered with a lighter vertical margin for mobile compatibility */
+    margin: 40px auto;
     padding: 15px;
     max-width: 1400px;
 }
 
-/* 2. INSTALLED RELATIVE CARD SCALING VIA CSS VARIABLES */
 .card {
-    --card-w: 250px; /* Base structural width */
+    --card-w: 250px;
     display: flex;
     flex-direction: column;
     background-color: black;
     width: var(--card-w);
-    height: calc(var(--card-w) * 1.4); /* Maintains standard 3.5:2.5 card ratio */
+    height: calc(var(--card-w) * 1.4);
     border-radius: 10px;
     position: relative;
     box-shadow: 5px 5px 5px 3px gray;
     flex-shrink: 0;
+    font-size: 16px; /* Base font size for relative 'em' calculations */
 }
 
-/* 3. FLUID MEDIA QUERY TO SCALE EVERYTHING DOWN ON MOBILE SCREENS */
-@media (max-width: 600px) {
-    .card-container {
-        margin: 20px auto;
-        gap: 15px;
-    }
+@media (max-width: 768px) {
     .card {
-        --card-w: 42vw; /* Dynamically sizes two cards side-by-side on mobile viewports */
-        font-size: 0.65em; /* Systematically scales down absolute positioning and font units */
+        --card-w: 18vw; /* Adjusts beautifully across tablet/mobile landscape screens */
+        font-size: 1.1vw; /* Fluidly scales down inner text and pips together */
     }
 }
 
+@media (max-width: 480px) {
+    .card {
+        --card-w: 42vw; /* Switches to 2-column grid view on narrow portrait phones */
+        font-size: 2.5vw;
+    }
+}
+
+/* --- GLOBAL CARD STYLES --- */
 .card-icon {
     color: whitesmoke;
     position: absolute;
 }
 
-.ace-a {
+/* --- CORNER ELEMENTS (UNIVERSAL POSITIONING) --- */
+.ace-a, .top-3, .club-4, .diamond-5 {
     position: absolute;
-    top: 0px;
-    left: 10px;
+    top: 10px;
+    left: 15px;
     margin: 0;
-    font-size: 35px;
-    padding-top: 5px;
+    font-size: 2em;
 }
 
-.top-left {
+.top-left, .top-left-heart, .club-top, .diamond-top {
     position: absolute;
-    top: 15px;
-    left: 10px;
-    padding-top: 25px;
-    font-size: 35px;
+    top: 35px;
+    left: 15px;
+    font-size: 2em;
 }
 
+.bottom, .flower-bottom, .club-bottom, .diamond-bottom {
+    position: absolute;
+    bottom: 35px;
+    right: 15px;
+    font-size: 2em;
+    transform: rotate(180deg);
+}
+
+.ace-a-reversed, .flower-2-reversed, .heart-3-reversed, .club-4-reversed, .diamond-5-reversed {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    margin: 0;
+    font-size: 2em;
+    transform: rotate(180deg);
+}
+
+/* Color overrides */
+.heart, .diamond {
+    color: red;
+}
+.top-3, .top-left-heart, .heart-3-reversed, .diamond-5-reversed {
+    color: red;
+}
+
+/* --- CARD 1: ACE --- */
 .middle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 100px;
+    font-size: 6em;
 }
 
-.bottom {
-    position: absolute;
-    bottom: 25px;
-    right: 10px;
-    padding-bottom: 35px;
-    font-size: 35px;
-    transform: rotate(180deg);
-}
-
-.ace-a-reversed {
-    position: absolute;
-    bottom: 0;
-    right: 8px;
-    margin: 0;
-    font-size: 35px;
-    transform: rotate(180deg);
-}
-
+/* --- CARD 2: TWO OF CLUBS --- */
 .flower-middle {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 80px;
-    padding-bottom: 70px;
+    font-size: 5.5em;
 }
 
-.reversed {
+.flower-middle.reversed {
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* --- CARD 3: THREE OF HEARTS --- */
+.middle-2 {
     position: absolute;
-    top: 47%;
-    left: 40%;
-    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 80px;
-    padding-bottom: 1px;
-}
-
-.flower-bottom {
-    position: absolute;
-    bottom: 35px;
-    right: 10px;
-    padding-bottom: 35px;
-    font-size: 35px;
-    transform: rotate(180deg);
-}
-
-.flower-2-reversed {
-    position: absolute;
-    bottom: 0;
-    right: 13px;
-    margin: 0;
-    font-size: 35px;
-    transform: rotate(180deg);
-    padding-bottom: 45px;
-}
-
-.heart {
-    color: red;
+    font-size: 5.5em;
 }
 
 .middle-1 {
@@ -140,154 +133,49 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 80px;
-    padding-bottom: 0px;
-}
-
-.middle-2 {
-    color: red;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    font-size: 80px;
-    padding-bottom: 70px;
+    font-size: 5.5em;
 }
 
 .heart-reversed {
     position: absolute;
-    top: 60%;
-    left: 40%;
-    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
     margin: 0;
-    font-size: 80px;
-    padding-bottom: 1px;
+    font-size: 5.5em;
 }
 
-.top-3 {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    margin: 0;
-    font-size: 35px;
-    padding-top: 5px;
-    color: red;
-}
-
-.top-left-heart {
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    padding-top: 25px;
-    font-size: 35px;
-    color: red;
-}
-
-.heart-3-reversed {
-    position: absolute;
-    bottom: 0;
-    right: 12px;
-    margin: 0;
-    font-size: 35px;
-    transform: rotate(180deg);
-    padding-bottom: 20px;
-}
-
-.club {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    margin: 0;
-    font-size: 35px;
-    padding-top: 5px;
-}
-
-.club-name {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    margin: 0;
-    font-size: 16px;
-}
-
-.club-4 {
-    position: absolute;
-    top: 0px;
-    left: 5px;
-    margin: 0;
-    font-size: 35px;
-    padding-top: 5px;
-}
-
-.club-top {
-    position: absolute;
-    top: 40px;
-    left: 5px;
-    font-size: 35px;
-}
-
+/* --- CARD 4: FOUR OF CLUBS --- */
 .club-middle-2 {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 70px;
+    font-size: 4.5em;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
 }
 
 .club-middle-2-reversed {
     position: absolute;
-    top: 50%;
-    left: 28%;
-    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
     margin: 0;
-    font-size: 70px;
-    padding-bottom: 1px;
+    font-size: 4.5em;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
 }
 
-.club-bottom {
-    position: absolute;
-    bottom: 25px;
-    right: 10px;
-    padding-bottom: 35px;
-    font-size: 35px;
-    transform: rotate(180deg);
-}
-
-.club-4-reversed {
-    position: absolute;
-    bottom: 0;
-    right: 12px;
-    margin: 0;
-    font-size: 35px;
-    transform: rotate(180deg);
-    padding-bottom: 20px;
-}
-
-.diamond-5 {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    margin: 0;
-    font-size: 35px;
-    padding-top: 5px;
-    color: red;
-}
-
-.diamond-top {
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    padding-top: 25px;
-    font-size: 35px;
-}
-
+/* --- CARD 5: FIVE OF DIAMONDS --- */
 .diamond-middle-2 {
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 70px;
+    font-size: 4.5em;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
 }
 
 .diamond-middle-1 {
@@ -296,37 +184,15 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    font-size: 80px;
-    padding-bottom: 0px;
+    font-size: 4.5em;
 }
 
 .diamond-middle-2-reversed {
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 70px;
-}
-
-.diamond-bottom {
-    position: absolute;
-    bottom: 40px;
-    right: 10px;
-    padding-bottom: 35px;
-    font-size: 35px;
-    transform: rotate(180deg);
-}
-
-.diamond-5-reversed {
-    position: absolute;
-    bottom: 0;
-    right: 12px;
-    margin: 0;
-    font-size: 35px;
-    transform: rotate(180deg);
-    padding-bottom: 20px;
-}
-
-.diamond {
-    color: red;
+    transform: translate(-50%, -50%) rotate(180deg);
+    font-size: 4.5em;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
 }
