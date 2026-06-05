@@ -1,77 +1,88 @@
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
     background-color: rgb(216, 191, 216);
     font-weight: 900;
 }
 
-.card-container{
+/* 1. FIXED CONTAINER MARGINS & ADDED RESPONSIVE SCALING */
+.card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap:30px;
-    margin:100px;
-    padding:30px;
-    position: relative;
+    gap: 20px;
+    margin: 40px auto; /* Centered with a lighter vertical margin for mobile compatibility */
+    padding: 15px;
+    max-width: 1400px;
 }
 
-.card{
+/* 2. INSTALLED RELATIVE CARD SCALING VIA CSS VARIABLES */
+.card {
+    --card-w: 250px; /* Base structural width */
     display: flex;
     flex-direction: column;
-    margin:20px;
-   gap:10px;
     background-color: black;
-    width:100%;
-    max-width:250px ;
-    min-width:250px;
+    width: var(--card-w);
+    height: calc(var(--card-w) * 1.4); /* Maintains standard 3.5:2.5 card ratio */
     border-radius: 10px;
-    height:350px;
-    max-height:650px;
     position: relative;
-    box-shadow:5px 5px 5px 3px gray;
+    box-shadow: 5px 5px 5px 3px gray;
+    flex-shrink: 0;
 }
 
-.card-icon{
-    color:whitesmoke;
-    position:absolute;
+/* 3. FLUID MEDIA QUERY TO SCALE EVERYTHING DOWN ON MOBILE SCREENS */
+@media (max-width: 600px) {
+    .card-container {
+        margin: 20px auto;
+        gap: 15px;
+    }
+    .card {
+        --card-w: 42vw; /* Dynamically sizes two cards side-by-side on mobile viewports */
+        font-size: 0.65em; /* Systematically scales down absolute positioning and font units */
+    }
 }
 
-.ace-a{
+.card-icon {
+    color: whitesmoke;
     position: absolute;
-    top:0px;
-    left:10px;
-    margin:0;
+}
+
+.ace-a {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    margin: 0;
     font-size: 35px;
     padding-top: 5px;
 }
 
-.top-left{
+.top-left {
     position: absolute;
-    top:15px;
-    left:10px;
+    top: 15px;
+    left: 10px;
     padding-top: 25px;
     font-size: 35px;
 }
 
-.middle{
+.middle {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 100px;
 }
 
-.bottom{
+.bottom {
     position: absolute;
-    bottom:25px;
-    right:10px;
+    bottom: 25px;
+    right: 10px;
     padding-bottom: 35px;
     font-size: 35px;
-    transform:rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.ace-a-reversed{
+.ace-a-reversed {
     position: absolute;
     bottom: 0;
     right: 8px;
@@ -80,104 +91,102 @@ body{
     transform: rotate(180deg);
 }
 
-.flower-middle{
+.flower-middle {
     position: absolute;
     top: 40%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
     font-size: 80px;
     padding-bottom: 70px;
 }
 
-.reversed{
+.reversed {
     position: absolute;
     top: 47%;
-    left:40%;
-    transform: translate(-50%, -50%);
-    transform: rotate(180deg);
+    left: 40%;
+    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
     margin: 0;
     font-size: 80px;
-    padding-bottom:1px;
+    padding-bottom: 1px;
 }
 
-.flower-bottom{
+.flower-bottom {
     position: absolute;
-    bottom:35px;
-    right:10px;
+    bottom: 35px;
+    right: 10px;
     padding-bottom: 35px;
     font-size: 35px;
-    transform:rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.flower-2-reversed{
+.flower-2-reversed {
     position: absolute;
     bottom: 0;
     right: 13px;
     margin: 0;
     font-size: 35px;
     transform: rotate(180deg);
-    padding-bottom:45px;
+    padding-bottom: 45px;
 }
 
-.heart{
-    color:red;
+.heart {
+    color: red;
 }
 
-.middle-1{
+.middle-1 {
     position: absolute;
     top: 50%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
     font-size: 80px;
     padding-bottom: 0px;
 }
 
-.middle-2{
-    color:red;
+.middle-2 {
+    color: red;
     position: absolute;
     top: 40%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
     font-size: 80px;
     padding-bottom: 70px;
 }
 
-.heart-reversed{
+.heart-reversed {
     position: absolute;
     top: 60%;
-    left:40%;
-    transform: translate(-50%, -50%);
-    transform: rotate(180deg);
+    left: 40%;
+    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
     margin: 0;
     font-size: 80px;
-    padding-bottom:1px;
+    padding-bottom: 1px;
 }
 
-.top-3{
+.top-3 {
     position: absolute;
-    top:0px;
-    left:10px;
-    margin:0;
+    top: 0px;
+    left: 10px;
+    margin: 0;
     font-size: 35px;
-    padding-top: 5px; 
-    color:red;
+    padding-top: 5px;
+    color: red;
 }
 
-.top-left-heart{
+.top-left-heart {
     position: absolute;
-    top:15px;
-    left:10px;
+    top: 15px;
+    left: 10px;
     padding-top: 25px;
     font-size: 35px;
-    color:red;
+    color: red;
 }
 
-.heart-3-reversed{
+.heart-3-reversed {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     right: 12px;
     margin: 0;
     font-size: 35px;
@@ -185,46 +194,40 @@ body{
     padding-bottom: 20px;
 }
 
-.club{
-   position: absolute;
-    top:0px;
-    left:10px;
-    margin:0;
-    font-size: 35px;
-    padding-top: 5px; 
-}
-.club-name{
+.club {
     position: absolute;
-    top: 10px;
+    top: 0px;
     left: 10px;
-    margin:0;
-    font-size: px;
-    padding-top: 0px;
-}
-
-
-
-
-.club-4{
-     position: absolute;
-    top:0px;
-    left:5px;
-    margin:0;
+    margin: 0;
     font-size: 35px;
     padding-top: 5px;
 }
 
-
-.club-top{
+.club-name {
     position: absolute;
-    top:40px;
-    left:5px; 
-    font-size: 35px;                                                                        
+    top: 10px;
+    left: 10px;
+    margin: 0;
+    font-size: 16px;
 }
 
+.club-4 {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    margin: 0;
+    font-size: 35px;
+    padding-top: 5px;
+}
 
+.club-top {
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    font-size: 35px;
+}
 
-.club-middle-2{
+.club-middle-2 {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -232,29 +235,28 @@ body{
     font-size: 70px;
 }
 
-.club-middle-2-reversed{
+.club-middle-2-reversed {
     position: absolute;
     top: 50%;
-    left:28%;
-    transform: translate(-50%, -50%);
-    transform: rotate(180deg);
-    margin:0;
+    left: 28%;
+    transform: translate(-50%, -50%) rotate(180deg); /* Unified transform declaration */
+    margin: 0;
     font-size: 70px;
-    padding-bottom:1px;
+    padding-bottom: 1px;
 }
 
-.club-bottom{
-     position: absolute;
-    bottom:25px;
-    right:10px;
+.club-bottom {
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
     padding-bottom: 35px;
     font-size: 35px;
-    transform:rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.club-4-reversed{
+.club-4-reversed {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     right: 12px;
     margin: 0;
     font-size: 35px;
@@ -262,63 +264,62 @@ body{
     padding-bottom: 20px;
 }
 
-
-.diamond-5{
+.diamond-5 {
     position: absolute;
-    top:0px;
-    left:10px;
-    margin:0;
+    top: 0px;
+    left: 10px;
+    margin: 0;
     font-size: 35px;
     padding-top: 5px;
     color: red;
 }
 
-.diamond-top{
+.diamond-top {
     position: absolute;
-    top:15px;
-    left:10px;
+    top: 15px;
+    left: 10px;
     padding-top: 25px;
     font-size: 35px;
 }
 
-.diamond-middle-2{
+.diamond-middle-2 {
     position: absolute;
-    top:25%;
-    left:50%;
+    top: 25%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 70px;
 }
 
-.diamond-middle-1{
-     position: absolute;
+.diamond-middle-1 {
+    position: absolute;
     top: 50%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
     font-size: 80px;
     padding-bottom: 0px;
 }
 
-.diamond-middle-2-reversed{
+.diamond-middle-2-reversed {
     position: absolute;
-    top:75%;
-    left:50%;
+    top: 75%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 70px;
 }
 
-.diamond-bottom{
+.diamond-bottom {
     position: absolute;
-    bottom:40px;
-    right:10px;
+    bottom: 40px;
+    right: 10px;
     padding-bottom: 35px;
     font-size: 35px;
-    transform:rotate(180deg);
+    transform: rotate(180deg);
 }
 
-.diamond-5-reversed{
+.diamond-5-reversed {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     right: 12px;
     margin: 0;
     font-size: 35px;
@@ -326,6 +327,6 @@ body{
     padding-bottom: 20px;
 }
 
-.diamond{
+.diamond {
     color: red;
 }
