@@ -28,26 +28,30 @@ body {
     position: relative;
     box-shadow: 5px 5px 5px 3px gray;
     flex-shrink: 0;
-    font-size: 16px; /* Base font size for relative 'em' calculations */
+    font-size: 16px;
+}
+
+/* FIX: Forces all inner text elements to be white so they don't blend into the black background */
+.card span, .card p {
+    color: whitesmoke;
 }
 
 @media (max-width: 768px) {
     .card {
-        --card-w: 18vw; /* Adjusts beautifully across tablet/mobile landscape screens */
-        font-size: 1.1vw; /* Fluidly scales down inner text and pips together */
+        --card-w: 18vw; 
+        font-size: 1.1vw; 
     }
 }
 
 @media (max-width: 480px) {
     .card {
-        --card-w: 42vw; /* Switches to 2-column grid view on narrow portrait phones */
+        --card-w: 42vw; 
         font-size: 2.5vw;
     }
 }
 
 /* --- GLOBAL CARD STYLES --- */
 .card-icon {
-    color: whitesmoke;
     position: absolute;
 }
 
@@ -84,12 +88,12 @@ body {
     transform: rotate(180deg);
 }
 
-/* Color overrides */
+/* COLOR OVERRIDES FOR RED SUITS */
 .heart, .diamond {
     color: red;
 }
-.top-3, .top-left-heart, .heart-3-reversed, .diamond-5-reversed {
-    color: red;
+.heart span, .heart p, .diamond span, .diamond p {
+    color: red !important;
 }
 
 /* --- CARD 1: ACE --- */
