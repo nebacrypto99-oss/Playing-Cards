@@ -1,0 +1,330 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: rgb(216, 191, 216);
+    font-weight: 900;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    margin:100px;
+    padding:30px;
+    position: relative;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+   
+    background-color: black;
+    width:100%;
+    max-width:250px ;
+    border-radius: 10px;
+    height:350px;
+    max-height:650px;
+    position: relative;
+    box-shadow:5px 5px 5px 3px gray;
+}
+
+.card-icon{
+    color:whitesmoke;
+    position:absolute;
+}
+
+.ace-a{
+    position: absolute;
+    top:0px;
+    left:10px;
+    margin:0;
+    font-size: 35px;
+    padding-top: 5px;
+}
+
+.top-left{
+    position: absolute;
+    top:15px;
+    left:10px;
+    padding-top: 25px;
+    font-size: 35px;
+}
+
+.middle{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+}
+
+.bottom{
+    position: absolute;
+    bottom:25px;
+    right:10px;
+    padding-bottom: 35px;
+    font-size: 35px;
+    transform:rotate(180deg);
+}
+
+.ace-a-reversed{
+    position: absolute;
+    bottom: 0;
+    right: 8px;
+    margin: 0;
+    font-size: 35px;
+    transform: rotate(180deg);
+}
+
+.flower-middle{
+    position: absolute;
+    top: 40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom: 70px;
+}
+
+.reversed{
+    position: absolute;
+    top: 47%;
+    left:40%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom:1px;
+}
+
+.flower-bottom{
+    position: absolute;
+    bottom:35px;
+    right:10px;
+    padding-bottom: 35px;
+    font-size: 35px;
+    transform:rotate(180deg);
+}
+
+.flower-2-reversed{
+    position: absolute;
+    bottom: 0;
+    right: 13px;
+    margin: 0;
+    font-size: 35px;
+    transform: rotate(180deg);
+    padding-bottom:45px;
+}
+
+.heart{
+    color:red;
+}
+
+.middle-1{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom: 0px;
+}
+
+.middle-2{
+    color:red;
+    position: absolute;
+    top: 40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom: 70px;
+}
+
+.heart-reversed{
+    position: absolute;
+    top: 60%;
+    left:40%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom:1px;
+}
+
+.top-3{
+    position: absolute;
+    top:0px;
+    left:10px;
+    margin:0;
+    font-size: 35px;
+    padding-top: 5px; 
+    color:red;
+}
+
+.top-left-heart{
+    position: absolute;
+    top:15px;
+    left:10px;
+    padding-top: 25px;
+    font-size: 35px;
+    color:red;
+}
+
+.heart-3-reversed{
+    position: absolute;
+    bottom:0;
+    right: 12px;
+    margin: 0;
+    font-size: 35px;
+    transform: rotate(180deg);
+    padding-bottom: 20px;
+}
+
+.club{
+   position: absolute;
+    top:0px;
+    left:10px;
+    margin:0;
+    font-size: 35px;
+    padding-top: 5px; 
+}
+.club-name{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin:0;
+    font-size: px;
+    padding-top: 0px;
+}
+
+
+
+
+.club-4{
+     position: absolute;
+    top:0px;
+    left:5px;
+    margin:0;
+    font-size: 35px;
+    padding-top: 5px;
+}
+
+
+.club-top{
+    position: absolute;
+    top:40px;
+    left:5px; 
+    font-size: 35px;                                                                        
+}
+
+
+
+.club-middle-2{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+.club-middle-2-reversed{
+    position: absolute;
+    top: 50%;
+    left:28%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+    margin:0;
+    font-size: 70px;
+    padding-bottom:1px;
+}
+
+.club-bottom{
+     position: absolute;
+    bottom:25px;
+    right:10px;
+    padding-bottom: 35px;
+    font-size: 35px;
+    transform:rotate(180deg);
+}
+
+.club-4-reversed{
+    position: absolute;
+    bottom:0;
+    right: 12px;
+    margin: 0;
+    font-size: 35px;
+    transform: rotate(180deg);
+    padding-bottom: 20px;
+}
+
+
+.diamond-5{
+    position: absolute;
+    top:0px;
+    left:10px;
+    margin:0;
+    font-size: 35px;
+    padding-top: 5px;
+    color: red;
+}
+
+.diamond-top{
+    position: absolute;
+    top:15px;
+    left:10px;
+    padding-top: 25px;
+    font-size: 35px;
+}
+
+.diamond-middle-2{
+    position: absolute;
+    top:25%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+.diamond-middle-1{
+     position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 80px;
+    padding-bottom: 0px;
+}
+
+.diamond-middle-2-reversed{
+    position: absolute;
+    top:75%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+.diamond-bottom{
+    position: absolute;
+    bottom:40px;
+    right:10px;
+    padding-bottom: 35px;
+    font-size: 35px;
+    transform:rotate(180deg);
+}
+
+.diamond-5-reversed{
+    position: absolute;
+    bottom:0;
+    right: 12px;
+    margin: 0;
+    font-size: 35px;
+    transform: rotate(180deg);
+    padding-bottom: 20px;
+}
+
+.diamond{
+    color: red;
+}
